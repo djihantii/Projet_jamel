@@ -1,29 +1,60 @@
+var IsClicked=false; 
+function Balancesheet()
+{
+	$('.ShowBalanceSheet').show();
+	$('.ShowAgents').hide();
+	$('.ShowChoosedAgents').hide();
+	$('.ShowGraph').hide();
+}
+
+function Agents()
+{
+	$('.ShowBalanceSheet').hide();
+	$('.ShowGraph').hide();
+	if (IsClicked === false) 
+	{
+		$('.ShowAgents').show();
+	}
+	else
+	{
+		$('.ShowChoosedAgents').show();
+	}
+}
+
+function Graphisme()
+{
+	$('.ShowGraph').show();
+	$('.ShowAgents').hide();
+	$('.ShowChoosedAgents').hide();
+	$('.ShowBalanceSheet').hide();	
+}
+
+
 $(document).ready(function()
 	{
 		
+		$('.ShowAgents').show();
 		$('.ShowBalanceSheet').hide();
 		$('.ShowGraph').hide();
-		$('.ShowAgents').show();
+		$('.ShowChoosedAgents').hide();
 
 
-
-		//$('.Validate').on('click' , function(){$(this).show();})
+		
 		$('.balanceSheet').on('click' , function()
 			{
-				$('.ShowBalanceSheet').show();
-				$('.ShowAgents').hide();
-				$('.ShowGraph').hide();
+				Balancesheet();
 			});
 		$('.AgentEconomic').on('click' , function()
 			{
-				$('.ShowAgents').show();
-				$('.ShowBalanceSheet').hide();
-				$('.ShowGraph').hide();
+				Agents();
 			});
 		$('.Graphs').on('click' , function()
 			{
-				$('.ShowGraph').show();
-				$('.ShowAgents').hide();
-				$('.ShowBalanceSheet').hide();
+				Graphisme();
+			});
+		$('.Validated').on('click' , function()
+			{
+				Graphisme();
+				IsClicked=true;
 			});
 	});
