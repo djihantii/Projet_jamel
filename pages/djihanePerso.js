@@ -1,4 +1,5 @@
 var IsClicked=false; 
+
 function Balancesheet()
 {
 	$('.ShowBalanceSheet').show();
@@ -38,7 +39,10 @@ $(document).ready(function()
 		$('.ShowGraph').hide();
 		$('.ShowChoosedAgents').hide();
 
-
+		$('.ISstopped').on('click', function()
+		{
+			IsClicked=false;
+		});
 		
 		$('.balanceSheet').on('click' , function()
 			{
